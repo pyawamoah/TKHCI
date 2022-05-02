@@ -1,0 +1,2203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KeeperDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Asset_CategoryTB">
+          <Key>
+            <PropertyRef Name="AS_CAT_ID" />
+          </Key>
+          <Property Name="AS_CAT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAT_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cat_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LI_Type" Type="int" />
+          <Property Name="Cat_Des" Type="nvarchar" MaxLength="150" />
+          <Property Name="CreateDT" Type="date" />
+          <Property Name="CreatedByW" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Asset_DisposalTB">
+          <Key>
+            <PropertyRef Name="DIT_ID" />
+          </Key>
+          <Property Name="DIT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Disposal_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AssetID" Type="nvarchar" MaxLength="50" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AssetName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PurchaseDT" Type="date" />
+          <Property Name="PurchaseAMT" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DepreciationM" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Total_Depreciation" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DisposalDT" Type="date" />
+          <Property Name="MarkAS" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDT" Type="date" />
+        </EntityType>
+        <EntityType Name="AssetTB">
+          <Key>
+            <PropertyRef Name="AT_ID" />
+          </Key>
+          <Property Name="AT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Asset_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Asset_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Serial_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="150" />
+          <Property Name="Unit_Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Cur_ID" Type="int" />
+          <Property Name="Purchase_DT" Type="date" />
+          <Property Name="Asset_Categoty" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept" Type="nvarchar" MaxLength="50" />
+          <Property Name="Manager_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warranty_DT" Type="date" />
+          <Property Name="WarrantyMonth" Type="nvarchar" MaxLength="50" />
+          <Property Name="Next_mantain_DT" Type="date" />
+          <Property Name="Supplaier_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supplier_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warranty_File" Type="varbinary(max)" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="150" />
+          <Property Name="Extension" Type="char" MaxLength="10" />
+          <Property Name="Warranty_File_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Asset_Note" Type="nvarchar" MaxLength="150" />
+          <Property Name="Asset_Image" Type="image" />
+          <Property Name="CreatedBY" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDT" Type="date" />
+        </EntityType>
+        <EntityType Name="AttendanceTB">
+          <Key>
+            <PropertyRef Name="ATT_ID" />
+          </Key>
+          <Property Name="ATT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Atten_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmplID" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullName1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ATT_Date" Type="date" />
+          <Property Name="Present" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Adsent" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Excuse" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DateCreatedDT" Type="date" />
+          <Property Name="CreatedByEmpl" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BonusTB">
+          <Key>
+            <PropertyRef Name="BT_ID" />
+          </Key>
+          <Property Name="BT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bonus_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sal_Grade_Code2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bonus_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDT" Type="date" />
+          <Property Name="CreatedBY" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CellTB">
+          <Key>
+            <PropertyRef Name="CT_ID" />
+          </Key>
+          <Property Name="CT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cell_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell_Lead_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell_Asst_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell_Adress" Type="nvarchar(max)" />
+          <Property Name="Cell_Location" Type="nvarchar(max)" />
+          <Property Name="Zonal_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell_Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDT" Type="date" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ConnectCardTB">
+          <Key>
+            <PropertyRef Name="CD_ID" />
+          </Key>
+          <Property Name="CD_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConCard_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sname" Type="nvarchar" MaxLength="50" />
+          <Property Name="OName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fullname_Guest" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Occupation" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Contact_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="King_Of_Service" Type="nvarchar" MaxLength="50" />
+          <Property Name="WishTo" Type="nvarchar" MaxLength="50" />
+          <Property Name="HearAt_US1" Type="nvarchar" MaxLength="50" />
+          <Property Name="HearAt_US2" Type="nvarchar" MaxLength="50" />
+          <Property Name="HearAt_US3" Type="nvarchar" MaxLength="50" />
+          <Property Name="HearAt_US4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Interested_IN1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Interested_IN2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Interested_IN3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Interested_IN4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Interested_IN5" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prayer_Rq" Type="nvarchar(max)" />
+          <Property Name="InvitedBY" Type="nvarchar" MaxLength="50" />
+          <Property Name="Member_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBY" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDT" Type="date" />
+        </EntityType>
+        <EntityType Name="CurrencyTB">
+          <Key>
+            <PropertyRef Name="CT_ID" />
+          </Key>
+          <Property Name="CT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUR_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="CUR_SHORT_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cur_Symbol" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cur_ID" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DepartmentTB">
+          <Key>
+            <PropertyRef Name="DT_ID" />
+          </Key>
+          <Property Name="DT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_ManagerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="No_of_Unit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Dept_Units1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Units2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Units3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Units4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Units5" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Units6" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Units7" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Units8" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Units9" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Units10" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept_Units11" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDT" Type="date" />
+        </EntityType>
+        <EntityType Name="Expense_CartTB">
+          <Key>
+            <PropertyRef Name="EXP_Cart_NO" />
+          </Key>
+          <Property Name="EXP_Cart_NO" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EXP_Cart_Row_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="EXP_Cart_Batch_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="EXP_Cart_Exp_Cat" Type="nvarchar" MaxLength="50" />
+          <Property Name="EXP_Cart_Pro_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="EXP_Cart_Unit_Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EXP_Cur_ID" Type="int" />
+          <Property Name="EXP_Cart_Quantity" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EXP_Cart_TotalPrice" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="ExpenseTB">
+          <Key>
+            <PropertyRef Name="EXP_NO" />
+          </Key>
+          <Property Name="EXP_NO" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Exp_BatchNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="Exp_Dept_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Exp_Cash_Mode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Exp_Chq_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Exp_eTran_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Exp_Batch_Total" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Exp_Cur_ID" Type="int" />
+          <Property Name="Exp_CreatedBY" Type="nvarchar" MaxLength="50" />
+          <Property Name="Exp_Create_DT" Type="date" />
+        </EntityType>
+        <EntityType Name="FamTB">
+          <Key>
+            <PropertyRef Name="FT_ID" />
+          </Key>
+          <Property Name="FT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fam_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fam_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fam_Greetings" Type="nvarchar" MaxLength="250" />
+          <Property Name="Husb_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Wife_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="No_Of_Child" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Name_Of_Child1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_Of_Child2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_Of_Child3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_Of_Child4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_Of_Child5" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_Of_Child6" Type="nchar" MaxLength="10" />
+          <Property Name="Fam_Pic" Type="image" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+          <Property Name="Home_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDT" Type="date" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="First_FruitTB">
+          <Key>
+            <PropertyRef Name="FF_ID" />
+          </Key>
+          <Property Name="FF_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FF_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="FF_Mem_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="FF_Mem_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="FF_Mem_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="FF_Mem_Cell" Type="nvarchar" MaxLength="50" />
+          <Property Name="FF_Pay_Channel" Type="nvarchar" MaxLength="50" />
+          <Property Name="FF_Chq_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="FF_eTran_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="FF_Cur_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="FF_Cur_ID" Type="int" />
+          <Property Name="FF_Cur_Symbol" Type="nvarchar" MaxLength="50" />
+          <Property Name="FF_Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FF_CreateDT" Type="date" />
+          <Property Name="FF_CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GE_CategoryTB">
+          <Key>
+            <PropertyRef Name="GE_CAT_NO" />
+          </Key>
+          <Property Name="GE_CAT_NO" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GE_CAT_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="GE_Cat_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="GE_Cat_Des" Type="nvarchar" MaxLength="150" />
+          <Property Name="GE_Liability_Type" Type="int" />
+          <Property Name="GE_CreateDT" Type="date" />
+          <Property Name="GE_CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GL_Deposit">
+          <Key>
+            <PropertyRef Name="Tran_ID" />
+          </Key>
+          <Property Name="Tran_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepositID" Type="nvarchar" MaxLength="50" />
+          <Property Name="GL_AcctNo" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Depo_GL_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="GL_Acct_Bal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Cur_Symbol" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cur_Descr" Type="nvarchar" MaxLength="50" />
+          <Property Name="GL_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Chq_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deposit_Amt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="createDT" Type="date" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="depositedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GL_Master">
+          <Key>
+            <PropertyRef Name="IL_ID" />
+          </Key>
+          <Property Name="IL_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IL_NO" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IL_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="IL_Bal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IL_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="IL_Cur_Short_Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="IL_Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="IL_Cur_ID" Type="int" />
+          <Property Name="IL_Cur_Symbol" Type="nvarchar" MaxLength="50" />
+          <Property Name="IL_GLS_CreateDT" Type="date" />
+          <Property Name="IL_GLS_CreatedBY" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="GL_Master_History">
+          <Key>
+            <PropertyRef Name="GMH_ID" />
+          </Key>
+          <Property Name="GMH_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GMH_GMH_Acct_no" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GMH_Acct_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GMH_Member_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="GMH_Description" Type="varchar" MaxLength="50" />
+          <Property Name="GMH_Create_dt" Type="smalldatetime" Nullable="false" />
+          <Property Name="GMH_Effective_dt" Type="smalldatetime" Nullable="false" />
+          <Property Name="GMH_Prev_Balance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GMH_Amt" Type="decimal" Precision="26" Scale="6" />
+          <Property Name="GMH_Total_Balance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GMH_Debit_credit" Type="smallint" />
+          <Property Name="GMH_Empl_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="GMH_Cur_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GL_Setup">
+          <Key>
+            <PropertyRef Name="GT_ID" />
+          </Key>
+          <Property Name="GT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GL_NO" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GL_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cur_Bal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GL_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cur_Short_Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cur_Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cur_ID" Type="int" />
+          <Property Name="Cur_Symbol" Type="nvarchar" MaxLength="50" />
+          <Property Name="GLS_CreateDT" Type="date" />
+          <Property Name="GLS_CreatedBY" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="GL_Transactions">
+          <Key>
+            <PropertyRef Name="Tran_ID" />
+          </Key>
+          <Property Name="Tran_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Acct_no" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Acct_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Member_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Create_dt" Type="smalldatetime" Nullable="false" />
+          <Property Name="Effective_dt" Type="smalldatetime" Nullable="false" />
+          <Property Name="Amt" Type="decimal" Precision="26" Scale="6" />
+          <Property Name="Debit_credit" Type="smallint" />
+          <Property Name="Empl_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cur_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invited_GuestTB">
+          <Key>
+            <PropertyRef Name="IV_TD" />
+          </Key>
+          <Property Name="IV_TD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_of_Guest" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_of_Who_InviteedGuest" Type="nvarchar" MaxLength="50" />
+          <Property Name="TKC_MemID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ivite_Count" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDT" Type="date" />
+        </EntityType>
+        <EntityType Name="LiabilitiesTB">
+          <Key>
+            <PropertyRef Name="LI_NO" />
+          </Key>
+          <Property Name="LI_NO" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LI_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="LI_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LI_Des" Type="nvarchar" MaxLength="150" />
+          <Property Name="LI_Type" Type="int" />
+          <Property Name="LI_CreateDT" Type="date" />
+          <Property Name="LI_CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoanTB">
+          <Key>
+            <PropertyRef Name="LT_ID" />
+          </Key>
+          <Property Name="LT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Loan_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="LPay_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Member_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sal_Grade_Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNoR" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoanAmt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Create_LDT" Type="date" />
+          <Property Name="CreatedLBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoanPurpose" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoanNeededDT" Type="date" />
+          <Property Name="MonthlyDeduct" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EmailADD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ManagersTB">
+          <Key>
+            <PropertyRef Name="MT_ID" />
+          </Key>
+          <Property Name="MT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Manager_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Manager_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDT" Type="date" />
+        </EntityType>
+        <EntityType Name="MembTB">
+          <Key>
+            <PropertyRef Name="MT_ID" />
+          </Key>
+          <Property Name="MT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fam_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="TKC_MemID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Emegency_Contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="50" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="Mari_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fam_Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="Official_Capa" Type="nvarchar" MaxLength="50" />
+          <Property Name="JoinDT" Type="date" />
+          <Property Name="Is_Baptised" Type="nvarchar" MaxLength="50" />
+          <Property Name="BaptismDT" Type="date" />
+          <Property Name="Service_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobTitile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dept" Type="nvarchar" MaxLength="50" />
+          <Property Name="Member_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBY" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MoneyBlockTB">
+          <Key>
+            <PropertyRef Name="MB_TD" />
+          </Key>
+          <Property Name="MB_TD" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MB_GL_NO" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MB_Descript" Type="nvarchar" MaxLength="50" />
+          <Property Name="MB_Cur_Sign" Type="nvarchar" MaxLength="50" />
+          <Property Name="MB_Bal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MB_CreateDT" Type="date" />
+          <Property Name="MB_CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OfferingTB">
+          <Key>
+            <PropertyRef Name="OT_ID" />
+          </Key>
+          <Property Name="OT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pay_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TKC_MemID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentDT" Type="date" />
+          <Property Name="Payment_Channel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cheque_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fund_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Mem_Fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="GL_No" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreatedBY" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PledgeTB">
+          <Key>
+            <PropertyRef Name="PP_NO" />
+          </Key>
+          <Property Name="PP_NO" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PP_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_Mem_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_Mem_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_Mem_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_Mem_Cell" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_Pay_Channel" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_Chq_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_eTran_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_Cur_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_CurID" Type="int" />
+          <Property Name="PP_Cur_Symbol" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_iSMember" Type="nvarchar" MaxLength="50" />
+          <Property Name="PP_Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="PP_Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PP_CreateDT" Type="date" />
+          <Property Name="PP_CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PWDC_WCompleteTB">
+          <Key>
+            <PropertyRef Name="PWDC_ID" />
+          </Key>
+          <Property Name="PWDC_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TKHS_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResetType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReqDT" Type="date" />
+          <Property Name="Platform" Type="nvarchar" MaxLength="50" />
+          <Property Name="complete" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="PWDR_ManageTB">
+          <Key>
+            <PropertyRef Name="PWDR_ID" />
+          </Key>
+          <Property Name="PWDR_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TKHS_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="platformTB" Type="nvarchar" MaxLength="50" />
+          <Property Name="requestDT" Type="date" />
+          <Property Name="PWD_ResetDT" Type="date" />
+          <Property Name="creatBY" Type="nvarchar" MaxLength="50" />
+          <Property Name="Request_Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sal_GradeTB">
+          <Key>
+            <PropertyRef Name="SGT_ID" />
+          </Key>
+          <Property Name="SGT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Grade_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grade_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grade_Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Base_Amt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OT_Per" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Perf_Bonus" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDATE" Type="date" />
+          <Property Name="CreatedBY_Who" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sal_PaymentTB">
+          <Key>
+            <PropertyRef Name="STP_ID" />
+          </Key>
+          <Property Name="STP_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pay_Slip_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pay_Acct_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_Of_Member" Type="nvarchar" MaxLength="50" />
+          <Property Name="MembershipID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalGrade" Type="nvarchar" MaxLength="50" />
+          <Property Name="BaseAmt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MonthBonus" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="LoanDedt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Mark_Present" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Mark_Absent" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Mark_Excuse" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetSal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreateSDT" Type="date" />
+          <Property Name="CreatedSBY" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Salary_UserTB">
+          <Key>
+            <PropertyRef Name="SU_ID" />
+          </Key>
+          <Property Name="SU_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pay_No" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sal_Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="NameFull" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TKHS_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Acct_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Create_db" Type="date" />
+          <Property Name="CreatedBYBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ServiceOfferingTB">
+          <Key>
+            <PropertyRef Name="OR_NO" />
+          </Key>
+          <Property Name="OR_NO" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OR_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Service_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="MW_Offering" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MF_Offering" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="SF_Offering" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="SS_Offering" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RO_CreateDT" Type="date" />
+          <Property Name="RO_CreatedBY" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ServiceTB">
+          <Key>
+            <PropertyRef Name="SR_ID" />
+          </Key>
+          <Property Name="SR_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Service_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Service_Start_Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Service_End_Time" Type="time" Precision="7" />
+          <Property Name="Service_Lead_Pastor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Service_Assist_Pastor" Type="nvarchar" MaxLength="50" />
+          <Property Name="Create_DT" Type="date" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TitheTB">
+          <Key>
+            <PropertyRef Name="TI_ID" />
+          </Key>
+          <Property Name="TI_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tithe_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_Mem_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_Mem_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_Mem_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_Mem_Cell" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_Pay_Channel" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_Chq_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_eTran_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_Cur_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_Cur_Symbol" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_CurID" Type="int" />
+          <Property Name="T_Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="T_Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="T_Paid_DT" Type="date" />
+          <Property Name="T_CreateDT" Type="date" />
+          <Property Name="T_CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TransactionCodeTB">
+          <Key>
+            <PropertyRef Name="TC_ID" />
+          </Key>
+          <Property Name="TC_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tran_Code" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TranCode_Descrip" Type="nvarchar" MaxLength="50" />
+          <Property Name="Asso_Cur_Symbol" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBY" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatDT" Type="date" />
+        </EntityType>
+        <EntityType Name="UserTB">
+          <Key>
+            <PropertyRef Name="UT_ID" />
+          </Key>
+          <Property Name="UT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TKHS_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="FName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Marrital_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="NOK_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="NOK_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="NOK_Address" Type="nvarchar(max)" />
+          <Property Name="NOKRela" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserFam" Type="nvarchar" MaxLength="100" />
+          <Property Name="Dep" Type="nvarchar" MaxLength="50" />
+          <Property Name="SysRoll" Type="nvarchar" MaxLength="50" />
+          <Property Name="Create_dt" Type="date" />
+          <Property Name="JDate" Type="date" />
+          <Property Name="Member_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="Security_question1" Type="nvarchar(max)" />
+          <Property Name="Security_question2" Type="nvarchar(max)" />
+          <Property Name="Security_question3" Type="nvarchar(max)" />
+          <Property Name="Secu_quest_answer1" Type="nvarchar(max)" />
+          <Property Name="Secu_quest_answer2" Type="nvarchar(max)" />
+          <Property Name="Secu_quest_answer3" Type="nvarchar(max)" />
+          <Property Name="Pwd_lock" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Admin_loc" Type="nvarchar" MaxLength="50" />
+          <Property Name="OfficialCapacity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+          <Property Name="securitySet" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="ZoneTB">
+          <Key>
+            <PropertyRef Name="ZT_ID" />
+          </Key>
+          <Property Name="ZT_ID" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Zone_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zone_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zone_Lead_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zone_Asst_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zonel_Adress" Type="nvarchar(max)" />
+          <Property Name="Zone_Location" Type="nvarchar(max)" />
+          <Property Name="Zone_Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zone_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zone_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDT" Type="date" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="KeeperDBModelStoreContainer">
+          <EntitySet Name="Asset_CategoryTB" EntityType="Self.Asset_CategoryTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Asset_DisposalTB" EntityType="Self.Asset_DisposalTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AssetTB" EntityType="Self.AssetTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttendanceTB" EntityType="Self.AttendanceTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BonusTB" EntityType="Self.BonusTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CellTB" EntityType="Self.CellTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConnectCardTB" EntityType="Self.ConnectCardTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurrencyTB" EntityType="Self.CurrencyTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepartmentTB" EntityType="Self.DepartmentTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expense_CartTB" EntityType="Self.Expense_CartTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpenseTB" EntityType="Self.ExpenseTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FamTB" EntityType="Self.FamTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="First_FruitTB" EntityType="Self.First_FruitTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GE_CategoryTB" EntityType="Self.GE_CategoryTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GL_Deposit" EntityType="Self.GL_Deposit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GL_Master" EntityType="Self.GL_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GL_Master_History" EntityType="Self.GL_Master_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GL_Setup" EntityType="Self.GL_Setup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GL_Transactions" EntityType="Self.GL_Transactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invited_GuestTB" EntityType="Self.Invited_GuestTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LiabilitiesTB" EntityType="Self.LiabilitiesTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanTB" EntityType="Self.LoanTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ManagersTB" EntityType="Self.ManagersTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MembTB" EntityType="Self.MembTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MoneyBlockTB" EntityType="Self.MoneyBlockTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OfferingTB" EntityType="Self.OfferingTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PledgeTB" EntityType="Self.PledgeTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWDC_WCompleteTB" EntityType="Self.PWDC_WCompleteTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWDR_ManageTB" EntityType="Self.PWDR_ManageTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sal_GradeTB" EntityType="Self.Sal_GradeTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sal_PaymentTB" EntityType="Self.Sal_PaymentTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salary_UserTB" EntityType="Self.Salary_UserTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceOfferingTB" EntityType="Self.ServiceOfferingTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceTB" EntityType="Self.ServiceTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TitheTB" EntityType="Self.TitheTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionCodeTB" EntityType="Self.TransactionCodeTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTB" EntityType="Self.UserTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZoneTB" EntityType="Self.ZoneTB" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KeeperDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Asset_CategoryTB">
+          <Key>
+            <PropertyRef Name="AS_CAT_ID" />
+          </Key>
+          <Property Name="AS_CAT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAT_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cat_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LI_Type" Type="Int32" />
+          <Property Name="Cat_Des" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="CreatedByW" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Asset_DisposalTB">
+          <Key>
+            <PropertyRef Name="DIT_ID" />
+          </Key>
+          <Property Name="DIT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Disposal_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AssetID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AssetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseDT" Type="DateTime" Precision="0" />
+          <Property Name="PurchaseAMT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DepreciationM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Total_Depreciation" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DisposalDT" Type="DateTime" Precision="0" />
+          <Property Name="MarkAS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="AssetTB">
+          <Key>
+            <PropertyRef Name="AT_ID" />
+          </Key>
+          <Property Name="AT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Asset_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Asset_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Serial_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Unit_Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Cur_ID" Type="Int32" />
+          <Property Name="Purchase_DT" Type="DateTime" Precision="0" />
+          <Property Name="Asset_Categoty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Manager_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Warranty_DT" Type="DateTime" Precision="0" />
+          <Property Name="WarrantyMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Next_mantain_DT" Type="DateTime" Precision="0" />
+          <Property Name="Supplaier_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supplier_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Warranty_File" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FilePath" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Extension" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Warranty_File_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Asset_Note" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Asset_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CreatedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="AttendanceTB">
+          <Key>
+            <PropertyRef Name="ATT_ID" />
+          </Key>
+          <Property Name="ATT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Atten_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmplID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ATT_Date" Type="DateTime" Precision="0" />
+          <Property Name="Present" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Adsent" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Excuse" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DateCreatedDT" Type="DateTime" Precision="0" />
+          <Property Name="CreatedByEmpl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BonusTB">
+          <Key>
+            <PropertyRef Name="BT_ID" />
+          </Key>
+          <Property Name="BT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bonus_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sal_Grade_Code2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bonus_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CellTB">
+          <Key>
+            <PropertyRef Name="CT_ID" />
+          </Key>
+          <Property Name="CT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cell_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_Lead_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_Asst_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zonal_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ConnectCardTB">
+          <Key>
+            <PropertyRef Name="CD_ID" />
+          </Key>
+          <Property Name="CD_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConCard_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fullname_Guest" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Contact_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="King_Of_Service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WishTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HearAt_US1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HearAt_US2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HearAt_US3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HearAt_US4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Interested_IN1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Interested_IN2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Interested_IN3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Interested_IN4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Interested_IN5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prayer_Rq" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InvitedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Member_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CurrencyTB">
+          <Key>
+            <PropertyRef Name="CT_ID" />
+          </Key>
+          <Property Name="CT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUR_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CUR_SHORT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cur_Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cur_ID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DepartmentTB">
+          <Key>
+            <PropertyRef Name="DT_ID" />
+          </Key>
+          <Property Name="DT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_ManagerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="No_of_Unit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Dept_Units1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Units2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Units3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Units4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Units5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Units6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Units7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Units8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Units9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Units10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept_Units11" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Expense_CartTB">
+          <Key>
+            <PropertyRef Name="EXP_Cart_NO" />
+          </Key>
+          <Property Name="EXP_Cart_NO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EXP_Cart_Row_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_Cart_Batch_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_Cart_Exp_Cat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_Cart_Pro_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EXP_Cart_Unit_Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EXP_Cur_ID" Type="Int32" />
+          <Property Name="EXP_Cart_Quantity" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EXP_Cart_TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="ExpenseTB">
+          <Key>
+            <PropertyRef Name="EXP_NO" />
+          </Key>
+          <Property Name="EXP_NO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Exp_BatchNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Exp_Dept_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Exp_Cash_Mode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Exp_Chq_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Exp_eTran_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Exp_Batch_Total" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Exp_Cur_ID" Type="Int32" />
+          <Property Name="Exp_CreatedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Exp_Create_DT" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="FamTB">
+          <Key>
+            <PropertyRef Name="FT_ID" />
+          </Key>
+          <Property Name="FT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fam_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fam_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fam_Greetings" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Husb_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Wife_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="No_Of_Child" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Name_Of_Child1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Of_Child2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Of_Child3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Of_Child4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Of_Child5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Of_Child6" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Fam_Pic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Home_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="First_FruitTB">
+          <Key>
+            <PropertyRef Name="FF_ID" />
+          </Key>
+          <Property Name="FF_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FF_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FF_Mem_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FF_Mem_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FF_Mem_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FF_Mem_Cell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FF_Pay_Channel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FF_Chq_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FF_eTran_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FF_Cur_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FF_Cur_ID" Type="Int32" />
+          <Property Name="FF_Cur_Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FF_Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FF_CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="FF_CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GE_CategoryTB">
+          <Key>
+            <PropertyRef Name="GE_CAT_NO" />
+          </Key>
+          <Property Name="GE_CAT_NO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GE_CAT_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GE_Cat_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GE_Cat_Des" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="GE_Liability_Type" Type="Int32" />
+          <Property Name="GE_CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="GE_CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GL_Deposit">
+          <Key>
+            <PropertyRef Name="Tran_ID" />
+          </Key>
+          <Property Name="Tran_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepositID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GL_AcctNo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Depo_GL_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GL_Acct_Bal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Cur_Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cur_Descr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GL_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Chq_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deposit_Amt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="createDT" Type="DateTime" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="depositedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GL_Master">
+          <Key>
+            <PropertyRef Name="IL_ID" />
+          </Key>
+          <Property Name="IL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IL_NO" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IL_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IL_Bal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IL_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IL_Cur_Short_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IL_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IL_Cur_ID" Type="Int32" />
+          <Property Name="IL_Cur_Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IL_GLS_CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="IL_GLS_CreatedBY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GL_Master_History">
+          <Key>
+            <PropertyRef Name="GMH_ID" />
+          </Key>
+          <Property Name="GMH_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GMH_GMH_Acct_no" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GMH_Acct_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GMH_Member_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GMH_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GMH_Create_dt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GMH_Effective_dt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GMH_Prev_Balance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GMH_Amt" Type="Decimal" Precision="26" Scale="6" />
+          <Property Name="GMH_Total_Balance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GMH_Debit_credit" Type="Int16" />
+          <Property Name="GMH_Empl_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GMH_Cur_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GL_Setup">
+          <Key>
+            <PropertyRef Name="GT_ID" />
+          </Key>
+          <Property Name="GT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GL_NO" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GL_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cur_Bal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GL_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cur_Short_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cur_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cur_ID" Type="Int32" />
+          <Property Name="Cur_Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GLS_CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="GLS_CreatedBY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GL_Transactions">
+          <Key>
+            <PropertyRef Name="Tran_ID" />
+          </Key>
+          <Property Name="Tran_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Acct_no" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Acct_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Member_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Create_dt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Effective_dt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Amt" Type="Decimal" Precision="26" Scale="6" />
+          <Property Name="Debit_credit" Type="Int16" />
+          <Property Name="Empl_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cur_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invited_GuestTB">
+          <Key>
+            <PropertyRef Name="IV_TD" />
+          </Key>
+          <Property Name="IV_TD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_of_Guest" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_of_Who_InviteedGuest" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TKC_MemID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ivite_Count" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="LiabilitiesTB">
+          <Key>
+            <PropertyRef Name="LI_NO" />
+          </Key>
+          <Property Name="LI_NO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LI_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LI_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LI_Des" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LI_Type" Type="Int32" />
+          <Property Name="LI_CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="LI_CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LoanTB">
+          <Key>
+            <PropertyRef Name="LT_ID" />
+          </Key>
+          <Property Name="LT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Loan_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LPay_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Member_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sal_Grade_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNoR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoanAmt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Create_LDT" Type="DateTime" Precision="0" />
+          <Property Name="CreatedLBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoanPurpose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoanNeededDT" Type="DateTime" Precision="0" />
+          <Property Name="MonthlyDeduct" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EmailADD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ManagersTB">
+          <Key>
+            <PropertyRef Name="MT_ID" />
+          </Key>
+          <Property Name="MT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Manager_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Manager_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="MembTB">
+          <Key>
+            <PropertyRef Name="MT_ID" />
+          </Key>
+          <Property Name="MT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fam_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TKC_MemID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Emegency_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Mari_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fam_Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Official_Capa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JoinDT" Type="DateTime" Precision="0" />
+          <Property Name="Is_Baptised" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BaptismDT" Type="DateTime" Precision="0" />
+          <Property Name="Service_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Member_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MoneyBlockTB">
+          <Key>
+            <PropertyRef Name="MB_TD" />
+          </Key>
+          <Property Name="MB_TD" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MB_GL_NO" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MB_Descript" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MB_Cur_Sign" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MB_Bal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MB_CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="MB_CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OfferingTB">
+          <Key>
+            <PropertyRef Name="OT_ID" />
+          </Key>
+          <Property Name="OT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pay_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TKC_MemID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentDT" Type="DateTime" Precision="0" />
+          <Property Name="Payment_Channel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cheque_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fund_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Mem_Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GL_No" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreatedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PledgeTB">
+          <Key>
+            <PropertyRef Name="PP_NO" />
+          </Key>
+          <Property Name="PP_NO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PP_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_Mem_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_Mem_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_Mem_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_Mem_Cell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_Pay_Channel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_Chq_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_eTran_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_Cur_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_CurID" Type="Int32" />
+          <Property Name="PP_Cur_Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_iSMember" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PP_Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PP_Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PP_CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="PP_CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PWDC_WCompleteTB">
+          <Key>
+            <PropertyRef Name="PWDC_ID" />
+          </Key>
+          <Property Name="PWDC_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TKHS_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResetType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReqDT" Type="DateTime" Precision="0" />
+          <Property Name="Platform" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="complete" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="PWDR_ManageTB">
+          <Key>
+            <PropertyRef Name="PWDR_ID" />
+          </Key>
+          <Property Name="PWDR_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TKHS_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="platformTB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="requestDT" Type="DateTime" Precision="0" />
+          <Property Name="PWD_ResetDT" Type="DateTime" Precision="0" />
+          <Property Name="creatBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sal_GradeTB">
+          <Key>
+            <PropertyRef Name="SGT_ID" />
+          </Key>
+          <Property Name="SGT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Grade_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grade_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grade_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Base_Amt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OT_Per" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Perf_Bonus" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreateDATE" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBY_Who" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sal_PaymentTB">
+          <Key>
+            <PropertyRef Name="STP_ID" />
+          </Key>
+          <Property Name="STP_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pay_Slip_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pay_Acct_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Of_Member" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MembershipID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SalGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BaseAmt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MonthBonus" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LoanDedt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Mark_Present" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Mark_Absent" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Mark_Excuse" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetSal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreateSDT" Type="DateTime" Precision="0" />
+          <Property Name="CreatedSBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Salary_UserTB">
+          <Key>
+            <PropertyRef Name="SU_ID" />
+          </Key>
+          <Property Name="SU_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pay_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sal_Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameFull" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TKHS_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Acct_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Create_db" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBYBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ServiceOfferingTB">
+          <Key>
+            <PropertyRef Name="OR_NO" />
+          </Key>
+          <Property Name="OR_NO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OR_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Service_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MW_Offering" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MF_Offering" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SF_Offering" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SS_Offering" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RO_CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="RO_CreatedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ServiceTB">
+          <Key>
+            <PropertyRef Name="SR_ID" />
+          </Key>
+          <Property Name="SR_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Service_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Service_Start_Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Service_End_Time" Type="Time" Precision="7" />
+          <Property Name="Service_Lead_Pastor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Service_Assist_Pastor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Create_DT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TitheTB">
+          <Key>
+            <PropertyRef Name="TI_ID" />
+          </Key>
+          <Property Name="TI_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tithe_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_Mem_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_Mem_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_Mem_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_Mem_Cell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_Pay_Channel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_Chq_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_eTran_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_Cur_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_Cur_Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_CurID" Type="Int32" />
+          <Property Name="T_Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="T_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T_Paid_DT" Type="DateTime" Precision="0" />
+          <Property Name="T_CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="T_CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TransactionCodeTB">
+          <Key>
+            <PropertyRef Name="TC_ID" />
+          </Key>
+          <Property Name="TC_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tran_Code" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TranCode_Descrip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Asso_Cur_Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatDT" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="UserTB">
+          <Key>
+            <PropertyRef Name="UT_ID" />
+          </Key>
+          <Property Name="UT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TKHS_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zip_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Marrital_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOK_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOK_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOK_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NOKRela" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserFam" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Dep" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SysRoll" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Create_dt" Type="DateTime" Precision="0" />
+          <Property Name="JDate" Type="DateTime" Precision="0" />
+          <Property Name="Member_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Security_question1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Security_question2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Security_question3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Secu_quest_answer1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Secu_quest_answer2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Secu_quest_answer3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pwd_lock" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Admin_loc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OfficialCapacity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="securitySet" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="ZoneTB">
+          <Key>
+            <PropertyRef Name="ZT_ID" />
+          </Key>
+          <Property Name="ZT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Zone_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zone_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zone_Lead_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zone_Asst_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zonel_Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zone_Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zone_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zone_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zone_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDT" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="KeeperDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Asset_CategoryTB" EntityType="Self.Asset_CategoryTB" />
+          <EntitySet Name="Asset_DisposalTB" EntityType="Self.Asset_DisposalTB" />
+          <EntitySet Name="AssetTBs" EntityType="Self.AssetTB" />
+          <EntitySet Name="AttendanceTBs" EntityType="Self.AttendanceTB" />
+          <EntitySet Name="BonusTBs" EntityType="Self.BonusTB" />
+          <EntitySet Name="CellTBs" EntityType="Self.CellTB" />
+          <EntitySet Name="ConnectCardTBs" EntityType="Self.ConnectCardTB" />
+          <EntitySet Name="CurrencyTBs" EntityType="Self.CurrencyTB" />
+          <EntitySet Name="DepartmentTBs" EntityType="Self.DepartmentTB" />
+          <EntitySet Name="Expense_CartTB" EntityType="Self.Expense_CartTB" />
+          <EntitySet Name="ExpenseTBs" EntityType="Self.ExpenseTB" />
+          <EntitySet Name="FamTBs" EntityType="Self.FamTB" />
+          <EntitySet Name="First_FruitTB" EntityType="Self.First_FruitTB" />
+          <EntitySet Name="GE_CategoryTB" EntityType="Self.GE_CategoryTB" />
+          <EntitySet Name="GL_Deposit" EntityType="Self.GL_Deposit" />
+          <EntitySet Name="GL_Master" EntityType="Self.GL_Master" />
+          <EntitySet Name="GL_Master_History" EntityType="Self.GL_Master_History" />
+          <EntitySet Name="GL_Setup" EntityType="Self.GL_Setup" />
+          <EntitySet Name="GL_Transactions" EntityType="Self.GL_Transactions" />
+          <EntitySet Name="Invited_GuestTB" EntityType="Self.Invited_GuestTB" />
+          <EntitySet Name="LiabilitiesTBs" EntityType="Self.LiabilitiesTB" />
+          <EntitySet Name="LoanTBs" EntityType="Self.LoanTB" />
+          <EntitySet Name="ManagersTBs" EntityType="Self.ManagersTB" />
+          <EntitySet Name="MembTBs" EntityType="Self.MembTB" />
+          <EntitySet Name="MoneyBlockTBs" EntityType="Self.MoneyBlockTB" />
+          <EntitySet Name="OfferingTBs" EntityType="Self.OfferingTB" />
+          <EntitySet Name="PledgeTBs" EntityType="Self.PledgeTB" />
+          <EntitySet Name="PWDC_WCompleteTB" EntityType="Self.PWDC_WCompleteTB" />
+          <EntitySet Name="PWDR_ManageTB" EntityType="Self.PWDR_ManageTB" />
+          <EntitySet Name="Sal_GradeTB" EntityType="Self.Sal_GradeTB" />
+          <EntitySet Name="Sal_PaymentTB" EntityType="Self.Sal_PaymentTB" />
+          <EntitySet Name="Salary_UserTB" EntityType="Self.Salary_UserTB" />
+          <EntitySet Name="ServiceOfferingTBs" EntityType="Self.ServiceOfferingTB" />
+          <EntitySet Name="ServiceTBs" EntityType="Self.ServiceTB" />
+          <EntitySet Name="TitheTBs" EntityType="Self.TitheTB" />
+          <EntitySet Name="TransactionCodeTBs" EntityType="Self.TransactionCodeTB" />
+          <EntitySet Name="UserTBs" EntityType="Self.UserTB" />
+          <EntitySet Name="ZoneTBs" EntityType="Self.ZoneTB" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KeeperDBModelStoreContainer" CdmEntityContainer="KeeperDBEntities">
+          <EntitySetMapping Name="Asset_CategoryTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.Asset_CategoryTB">
+              <MappingFragment StoreEntitySet="Asset_CategoryTB">
+                <ScalarProperty Name="AS_CAT_ID" ColumnName="AS_CAT_ID" />
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+                <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+                <ScalarProperty Name="LI_Type" ColumnName="LI_Type" />
+                <ScalarProperty Name="Cat_Des" ColumnName="Cat_Des" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreatedByW" ColumnName="CreatedByW" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Asset_DisposalTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.Asset_DisposalTB">
+              <MappingFragment StoreEntitySet="Asset_DisposalTB">
+                <ScalarProperty Name="DIT_ID" ColumnName="DIT_ID" />
+                <ScalarProperty Name="Disposal_ID" ColumnName="Disposal_ID" />
+                <ScalarProperty Name="AssetID" ColumnName="AssetID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="AssetName" ColumnName="AssetName" />
+                <ScalarProperty Name="PurchaseDT" ColumnName="PurchaseDT" />
+                <ScalarProperty Name="PurchaseAMT" ColumnName="PurchaseAMT" />
+                <ScalarProperty Name="DepreciationM" ColumnName="DepreciationM" />
+                <ScalarProperty Name="Total_Depreciation" ColumnName="Total_Depreciation" />
+                <ScalarProperty Name="DisposalDT" ColumnName="DisposalDT" />
+                <ScalarProperty Name="MarkAS" ColumnName="MarkAS" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.AssetTB">
+              <MappingFragment StoreEntitySet="AssetTB">
+                <ScalarProperty Name="AT_ID" ColumnName="AT_ID" />
+                <ScalarProperty Name="Asset_ID" ColumnName="Asset_ID" />
+                <ScalarProperty Name="Asset_Name" ColumnName="Asset_Name" />
+                <ScalarProperty Name="Model_No" ColumnName="Model_No" />
+                <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+                <ScalarProperty Name="Cur_ID" ColumnName="Cur_ID" />
+                <ScalarProperty Name="Purchase_DT" ColumnName="Purchase_DT" />
+                <ScalarProperty Name="Asset_Categoty" ColumnName="Asset_Categoty" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+                <ScalarProperty Name="Manager_Name" ColumnName="Manager_Name" />
+                <ScalarProperty Name="Warranty_DT" ColumnName="Warranty_DT" />
+                <ScalarProperty Name="WarrantyMonth" ColumnName="WarrantyMonth" />
+                <ScalarProperty Name="Next_mantain_DT" ColumnName="Next_mantain_DT" />
+                <ScalarProperty Name="Supplaier_Name" ColumnName="Supplaier_Name" />
+                <ScalarProperty Name="Supplier_Phone" ColumnName="Supplier_Phone" />
+                <ScalarProperty Name="Warranty_File" ColumnName="Warranty_File" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Warranty_File_Name" ColumnName="Warranty_File_Name" />
+                <ScalarProperty Name="Asset_Note" ColumnName="Asset_Note" />
+                <ScalarProperty Name="Asset_Image" ColumnName="Asset_Image" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.AttendanceTB">
+              <MappingFragment StoreEntitySet="AttendanceTB">
+                <ScalarProperty Name="ATT_ID" ColumnName="ATT_ID" />
+                <ScalarProperty Name="Atten_No" ColumnName="Atten_No" />
+                <ScalarProperty Name="EmplID" ColumnName="EmplID" />
+                <ScalarProperty Name="FullName1" ColumnName="FullName1" />
+                <ScalarProperty Name="ATT_Date" ColumnName="ATT_Date" />
+                <ScalarProperty Name="Present" ColumnName="Present" />
+                <ScalarProperty Name="Adsent" ColumnName="Adsent" />
+                <ScalarProperty Name="Excuse" ColumnName="Excuse" />
+                <ScalarProperty Name="DateCreatedDT" ColumnName="DateCreatedDT" />
+                <ScalarProperty Name="CreatedByEmpl" ColumnName="CreatedByEmpl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BonusTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.BonusTB">
+              <MappingFragment StoreEntitySet="BonusTB">
+                <ScalarProperty Name="BT_ID" ColumnName="BT_ID" />
+                <ScalarProperty Name="Bonus_ID" ColumnName="Bonus_ID" />
+                <ScalarProperty Name="Sal_Grade_Code2" ColumnName="Sal_Grade_Code2" />
+                <ScalarProperty Name="Bonus_Name" ColumnName="Bonus_Name" />
+                <ScalarProperty Name="Amt" ColumnName="Amt" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CellTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.CellTB">
+              <MappingFragment StoreEntitySet="CellTB">
+                <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+                <ScalarProperty Name="Cell_ID" ColumnName="Cell_ID" />
+                <ScalarProperty Name="Cell_Name" ColumnName="Cell_Name" />
+                <ScalarProperty Name="Cell_Lead_Name" ColumnName="Cell_Lead_Name" />
+                <ScalarProperty Name="Cell_Asst_Name" ColumnName="Cell_Asst_Name" />
+                <ScalarProperty Name="Cell_Adress" ColumnName="Cell_Adress" />
+                <ScalarProperty Name="Cell_Location" ColumnName="Cell_Location" />
+                <ScalarProperty Name="Zonal_Name" ColumnName="Zonal_Name" />
+                <ScalarProperty Name="Cell_Email" ColumnName="Cell_Email" />
+                <ScalarProperty Name="Cell_Phone" ColumnName="Cell_Phone" />
+                <ScalarProperty Name="Cell_Status" ColumnName="Cell_Status" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConnectCardTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.ConnectCardTB">
+              <MappingFragment StoreEntitySet="ConnectCardTB">
+                <ScalarProperty Name="CD_ID" ColumnName="CD_ID" />
+                <ScalarProperty Name="ConCard_NO" ColumnName="ConCard_NO" />
+                <ScalarProperty Name="Sname" ColumnName="Sname" />
+                <ScalarProperty Name="OName" ColumnName="OName" />
+                <ScalarProperty Name="Fullname_Guest" ColumnName="Fullname_Guest" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Contact_No" ColumnName="Contact_No" />
+                <ScalarProperty Name="King_Of_Service" ColumnName="King_Of_Service" />
+                <ScalarProperty Name="WishTo" ColumnName="WishTo" />
+                <ScalarProperty Name="HearAt_US1" ColumnName="HearAt_US1" />
+                <ScalarProperty Name="HearAt_US2" ColumnName="HearAt_US2" />
+                <ScalarProperty Name="HearAt_US3" ColumnName="HearAt_US3" />
+                <ScalarProperty Name="HearAt_US4" ColumnName="HearAt_US4" />
+                <ScalarProperty Name="Interested_IN1" ColumnName="Interested_IN1" />
+                <ScalarProperty Name="Interested_IN2" ColumnName="Interested_IN2" />
+                <ScalarProperty Name="Interested_IN3" ColumnName="Interested_IN3" />
+                <ScalarProperty Name="Interested_IN4" ColumnName="Interested_IN4" />
+                <ScalarProperty Name="Interested_IN5" ColumnName="Interested_IN5" />
+                <ScalarProperty Name="Prayer_Rq" ColumnName="Prayer_Rq" />
+                <ScalarProperty Name="InvitedBY" ColumnName="InvitedBY" />
+                <ScalarProperty Name="Member_ID" ColumnName="Member_ID" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurrencyTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.CurrencyTB">
+              <MappingFragment StoreEntitySet="CurrencyTB">
+                <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+                <ScalarProperty Name="CUR_NAME" ColumnName="CUR_NAME" />
+                <ScalarProperty Name="CUR_SHORT_NAME" ColumnName="CUR_SHORT_NAME" />
+                <ScalarProperty Name="Cur_Symbol" ColumnName="Cur_Symbol" />
+                <ScalarProperty Name="Cur_ID" ColumnName="Cur_ID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartmentTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.DepartmentTB">
+              <MappingFragment StoreEntitySet="DepartmentTB">
+                <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+                <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="Dept_ManagerName" ColumnName="Dept_ManagerName" />
+                <ScalarProperty Name="No_of_Unit" ColumnName="No_of_Unit" />
+                <ScalarProperty Name="Dept_Units1" ColumnName="Dept_Units1" />
+                <ScalarProperty Name="Dept_Units2" ColumnName="Dept_Units2" />
+                <ScalarProperty Name="Dept_Units3" ColumnName="Dept_Units3" />
+                <ScalarProperty Name="Dept_Units4" ColumnName="Dept_Units4" />
+                <ScalarProperty Name="Dept_Units5" ColumnName="Dept_Units5" />
+                <ScalarProperty Name="Dept_Units6" ColumnName="Dept_Units6" />
+                <ScalarProperty Name="Dept_Units7" ColumnName="Dept_Units7" />
+                <ScalarProperty Name="Dept_Units8" ColumnName="Dept_Units8" />
+                <ScalarProperty Name="Dept_Units9" ColumnName="Dept_Units9" />
+                <ScalarProperty Name="Dept_Units10" ColumnName="Dept_Units10" />
+                <ScalarProperty Name="Dept_Units11" ColumnName="Dept_Units11" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expense_CartTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.Expense_CartTB">
+              <MappingFragment StoreEntitySet="Expense_CartTB">
+                <ScalarProperty Name="EXP_Cart_NO" ColumnName="EXP_Cart_NO" />
+                <ScalarProperty Name="EXP_Cart_Row_No" ColumnName="EXP_Cart_Row_No" />
+                <ScalarProperty Name="EXP_Cart_Batch_No" ColumnName="EXP_Cart_Batch_No" />
+                <ScalarProperty Name="EXP_Cart_Exp_Cat" ColumnName="EXP_Cart_Exp_Cat" />
+                <ScalarProperty Name="EXP_Cart_Pro_Name" ColumnName="EXP_Cart_Pro_Name" />
+                <ScalarProperty Name="EXP_Cart_Unit_Price" ColumnName="EXP_Cart_Unit_Price" />
+                <ScalarProperty Name="EXP_Cur_ID" ColumnName="EXP_Cur_ID" />
+                <ScalarProperty Name="EXP_Cart_Quantity" ColumnName="EXP_Cart_Quantity" />
+                <ScalarProperty Name="EXP_Cart_TotalPrice" ColumnName="EXP_Cart_TotalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpenseTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.ExpenseTB">
+              <MappingFragment StoreEntitySet="ExpenseTB">
+                <ScalarProperty Name="EXP_NO" ColumnName="EXP_NO" />
+                <ScalarProperty Name="Exp_BatchNO" ColumnName="Exp_BatchNO" />
+                <ScalarProperty Name="Exp_Dept_Name" ColumnName="Exp_Dept_Name" />
+                <ScalarProperty Name="Exp_Cash_Mode" ColumnName="Exp_Cash_Mode" />
+                <ScalarProperty Name="Exp_Chq_No" ColumnName="Exp_Chq_No" />
+                <ScalarProperty Name="Exp_eTran_No" ColumnName="Exp_eTran_No" />
+                <ScalarProperty Name="Exp_Batch_Total" ColumnName="Exp_Batch_Total" />
+                <ScalarProperty Name="Exp_Cur_ID" ColumnName="Exp_Cur_ID" />
+                <ScalarProperty Name="Exp_CreatedBY" ColumnName="Exp_CreatedBY" />
+                <ScalarProperty Name="Exp_Create_DT" ColumnName="Exp_Create_DT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FamTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.FamTB">
+              <MappingFragment StoreEntitySet="FamTB">
+                <ScalarProperty Name="FT_ID" ColumnName="FT_ID" />
+                <ScalarProperty Name="Fam_ID" ColumnName="Fam_ID" />
+                <ScalarProperty Name="Fam_Name" ColumnName="Fam_Name" />
+                <ScalarProperty Name="Fam_Greetings" ColumnName="Fam_Greetings" />
+                <ScalarProperty Name="Husb_Name" ColumnName="Husb_Name" />
+                <ScalarProperty Name="Wife_Name" ColumnName="Wife_Name" />
+                <ScalarProperty Name="No_Of_Child" ColumnName="No_Of_Child" />
+                <ScalarProperty Name="Name_Of_Child1" ColumnName="Name_Of_Child1" />
+                <ScalarProperty Name="Name_Of_Child2" ColumnName="Name_Of_Child2" />
+                <ScalarProperty Name="Name_Of_Child3" ColumnName="Name_Of_Child3" />
+                <ScalarProperty Name="Name_Of_Child4" ColumnName="Name_Of_Child4" />
+                <ScalarProperty Name="Name_Of_Child5" ColumnName="Name_Of_Child5" />
+                <ScalarProperty Name="Name_Of_Child6" ColumnName="Name_Of_Child6" />
+                <ScalarProperty Name="Fam_Pic" ColumnName="Fam_Pic" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Home_Phone" ColumnName="Home_Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="First_FruitTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.First_FruitTB">
+              <MappingFragment StoreEntitySet="First_FruitTB">
+                <ScalarProperty Name="FF_ID" ColumnName="FF_ID" />
+                <ScalarProperty Name="FF_NO" ColumnName="FF_NO" />
+                <ScalarProperty Name="FF_Mem_ID" ColumnName="FF_Mem_ID" />
+                <ScalarProperty Name="FF_Mem_Name" ColumnName="FF_Mem_Name" />
+                <ScalarProperty Name="FF_Mem_Phone" ColumnName="FF_Mem_Phone" />
+                <ScalarProperty Name="FF_Mem_Cell" ColumnName="FF_Mem_Cell" />
+                <ScalarProperty Name="FF_Pay_Channel" ColumnName="FF_Pay_Channel" />
+                <ScalarProperty Name="FF_Chq_No" ColumnName="FF_Chq_No" />
+                <ScalarProperty Name="FF_eTran_No" ColumnName="FF_eTran_No" />
+                <ScalarProperty Name="FF_Cur_Type" ColumnName="FF_Cur_Type" />
+                <ScalarProperty Name="FF_Cur_ID" ColumnName="FF_Cur_ID" />
+                <ScalarProperty Name="FF_Cur_Symbol" ColumnName="FF_Cur_Symbol" />
+                <ScalarProperty Name="FF_Amount" ColumnName="FF_Amount" />
+                <ScalarProperty Name="FF_CreateDT" ColumnName="FF_CreateDT" />
+                <ScalarProperty Name="FF_CreatedBy" ColumnName="FF_CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GE_CategoryTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.GE_CategoryTB">
+              <MappingFragment StoreEntitySet="GE_CategoryTB">
+                <ScalarProperty Name="GE_CAT_NO" ColumnName="GE_CAT_NO" />
+                <ScalarProperty Name="GE_CAT_ID" ColumnName="GE_CAT_ID" />
+                <ScalarProperty Name="GE_Cat_Name" ColumnName="GE_Cat_Name" />
+                <ScalarProperty Name="GE_Cat_Des" ColumnName="GE_Cat_Des" />
+                <ScalarProperty Name="GE_Liability_Type" ColumnName="GE_Liability_Type" />
+                <ScalarProperty Name="GE_CreateDT" ColumnName="GE_CreateDT" />
+                <ScalarProperty Name="GE_CreatedBy" ColumnName="GE_CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GL_Deposit">
+            <EntityTypeMapping TypeName="KeeperDBModel.GL_Deposit">
+              <MappingFragment StoreEntitySet="GL_Deposit">
+                <ScalarProperty Name="Tran_ID" ColumnName="Tran_ID" />
+                <ScalarProperty Name="DepositID" ColumnName="DepositID" />
+                <ScalarProperty Name="GL_AcctNo" ColumnName="GL_AcctNo" />
+                <ScalarProperty Name="Depo_GL_Name" ColumnName="Depo_GL_Name" />
+                <ScalarProperty Name="GL_Acct_Bal" ColumnName="GL_Acct_Bal" />
+                <ScalarProperty Name="Cur_Symbol" ColumnName="Cur_Symbol" />
+                <ScalarProperty Name="Cur_Descr" ColumnName="Cur_Descr" />
+                <ScalarProperty Name="GL_Type" ColumnName="GL_Type" />
+                <ScalarProperty Name="Mode" ColumnName="Mode" />
+                <ScalarProperty Name="Chq_No" ColumnName="Chq_No" />
+                <ScalarProperty Name="Deposit_Amt" ColumnName="Deposit_Amt" />
+                <ScalarProperty Name="createDT" ColumnName="createDT" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="depositedBy" ColumnName="depositedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GL_Master">
+            <EntityTypeMapping TypeName="KeeperDBModel.GL_Master">
+              <MappingFragment StoreEntitySet="GL_Master">
+                <ScalarProperty Name="IL_ID" ColumnName="IL_ID" />
+                <ScalarProperty Name="IL_NO" ColumnName="IL_NO" />
+                <ScalarProperty Name="IL_Type" ColumnName="IL_Type" />
+                <ScalarProperty Name="IL_Bal" ColumnName="IL_Bal" />
+                <ScalarProperty Name="IL_Name" ColumnName="IL_Name" />
+                <ScalarProperty Name="IL_Cur_Short_Code" ColumnName="IL_Cur_Short_Code" />
+                <ScalarProperty Name="IL_Description" ColumnName="IL_Description" />
+                <ScalarProperty Name="IL_Cur_ID" ColumnName="IL_Cur_ID" />
+                <ScalarProperty Name="IL_Cur_Symbol" ColumnName="IL_Cur_Symbol" />
+                <ScalarProperty Name="IL_GLS_CreateDT" ColumnName="IL_GLS_CreateDT" />
+                <ScalarProperty Name="IL_GLS_CreatedBY" ColumnName="IL_GLS_CreatedBY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GL_Master_History">
+            <EntityTypeMapping TypeName="KeeperDBModel.GL_Master_History">
+              <MappingFragment StoreEntitySet="GL_Master_History">
+                <ScalarProperty Name="GMH_ID" ColumnName="GMH_ID" />
+                <ScalarProperty Name="GMH_GMH_Acct_no" ColumnName="GMH_GMH_Acct_no" />
+                <ScalarProperty Name="GMH_Acct_type" ColumnName="GMH_Acct_type" />
+                <ScalarProperty Name="GMH_Member_ID" ColumnName="GMH_Member_ID" />
+                <ScalarProperty Name="GMH_Description" ColumnName="GMH_Description" />
+                <ScalarProperty Name="GMH_Create_dt" ColumnName="GMH_Create_dt" />
+                <ScalarProperty Name="GMH_Effective_dt" ColumnName="GMH_Effective_dt" />
+                <ScalarProperty Name="GMH_Prev_Balance" ColumnName="GMH_Prev_Balance" />
+                <ScalarProperty Name="GMH_Amt" ColumnName="GMH_Amt" />
+                <ScalarProperty Name="GMH_Total_Balance" ColumnName="GMH_Total_Balance" />
+                <ScalarProperty Name="GMH_Debit_credit" ColumnName="GMH_Debit_credit" />
+                <ScalarProperty Name="GMH_Empl_id" ColumnName="GMH_Empl_id" />
+                <ScalarProperty Name="GMH_Cur_ID" ColumnName="GMH_Cur_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GL_Setup">
+            <EntityTypeMapping TypeName="KeeperDBModel.GL_Setup">
+              <MappingFragment StoreEntitySet="GL_Setup">
+                <ScalarProperty Name="GT_ID" ColumnName="GT_ID" />
+                <ScalarProperty Name="GL_NO" ColumnName="GL_NO" />
+                <ScalarProperty Name="GL_Type" ColumnName="GL_Type" />
+                <ScalarProperty Name="Cur_Bal" ColumnName="Cur_Bal" />
+                <ScalarProperty Name="GL_Name" ColumnName="GL_Name" />
+                <ScalarProperty Name="Cur_Short_Code" ColumnName="Cur_Short_Code" />
+                <ScalarProperty Name="Cur_Description" ColumnName="Cur_Description" />
+                <ScalarProperty Name="Cur_ID" ColumnName="Cur_ID" />
+                <ScalarProperty Name="Cur_Symbol" ColumnName="Cur_Symbol" />
+                <ScalarProperty Name="GLS_CreateDT" ColumnName="GLS_CreateDT" />
+                <ScalarProperty Name="GLS_CreatedBY" ColumnName="GLS_CreatedBY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GL_Transactions">
+            <EntityTypeMapping TypeName="KeeperDBModel.GL_Transactions">
+              <MappingFragment StoreEntitySet="GL_Transactions">
+                <ScalarProperty Name="Tran_ID" ColumnName="Tran_ID" />
+                <ScalarProperty Name="Acct_no" ColumnName="Acct_no" />
+                <ScalarProperty Name="Acct_type" ColumnName="Acct_type" />
+                <ScalarProperty Name="Member_ID" ColumnName="Member_ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Create_dt" ColumnName="Create_dt" />
+                <ScalarProperty Name="Effective_dt" ColumnName="Effective_dt" />
+                <ScalarProperty Name="Amt" ColumnName="Amt" />
+                <ScalarProperty Name="Debit_credit" ColumnName="Debit_credit" />
+                <ScalarProperty Name="Empl_id" ColumnName="Empl_id" />
+                <ScalarProperty Name="Cur_ID" ColumnName="Cur_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invited_GuestTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.Invited_GuestTB">
+              <MappingFragment StoreEntitySet="Invited_GuestTB">
+                <ScalarProperty Name="IV_TD" ColumnName="IV_TD" />
+                <ScalarProperty Name="Name_of_Guest" ColumnName="Name_of_Guest" />
+                <ScalarProperty Name="Name_of_Who_InviteedGuest" ColumnName="Name_of_Who_InviteedGuest" />
+                <ScalarProperty Name="TKC_MemID" ColumnName="TKC_MemID" />
+                <ScalarProperty Name="Ivite_Count" ColumnName="Ivite_Count" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiabilitiesTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.LiabilitiesTB">
+              <MappingFragment StoreEntitySet="LiabilitiesTB">
+                <ScalarProperty Name="LI_NO" ColumnName="LI_NO" />
+                <ScalarProperty Name="LI_ID" ColumnName="LI_ID" />
+                <ScalarProperty Name="LI_Name" ColumnName="LI_Name" />
+                <ScalarProperty Name="LI_Des" ColumnName="LI_Des" />
+                <ScalarProperty Name="LI_Type" ColumnName="LI_Type" />
+                <ScalarProperty Name="LI_CreateDT" ColumnName="LI_CreateDT" />
+                <ScalarProperty Name="LI_CreatedBy" ColumnName="LI_CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.LoanTB">
+              <MappingFragment StoreEntitySet="LoanTB">
+                <ScalarProperty Name="LT_ID" ColumnName="LT_ID" />
+                <ScalarProperty Name="Loan_NO" ColumnName="Loan_NO" />
+                <ScalarProperty Name="LPay_No" ColumnName="LPay_No" />
+                <ScalarProperty Name="Member_ID" ColumnName="Member_ID" />
+                <ScalarProperty Name="Sal_Grade_Code" ColumnName="Sal_Grade_Code" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="PhoneNoR" ColumnName="PhoneNoR" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LoanAmt" ColumnName="LoanAmt" />
+                <ScalarProperty Name="Create_LDT" ColumnName="Create_LDT" />
+                <ScalarProperty Name="CreatedLBy" ColumnName="CreatedLBy" />
+                <ScalarProperty Name="LoanPurpose" ColumnName="LoanPurpose" />
+                <ScalarProperty Name="LoanNeededDT" ColumnName="LoanNeededDT" />
+                <ScalarProperty Name="MonthlyDeduct" ColumnName="MonthlyDeduct" />
+                <ScalarProperty Name="EmailADD" ColumnName="EmailADD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ManagersTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.ManagersTB">
+              <MappingFragment StoreEntitySet="ManagersTB">
+                <ScalarProperty Name="MT_ID" ColumnName="MT_ID" />
+                <ScalarProperty Name="Manager_No" ColumnName="Manager_No" />
+                <ScalarProperty Name="Manager_Name" ColumnName="Manager_Name" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MembTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.MembTB">
+              <MappingFragment StoreEntitySet="MembTB">
+                <ScalarProperty Name="MT_ID" ColumnName="MT_ID" />
+                <ScalarProperty Name="Fam_Name" ColumnName="Fam_Name" />
+                <ScalarProperty Name="TKC_MemID" ColumnName="TKC_MemID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Sname" ColumnName="Sname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Emegency_Contact" ColumnName="Emegency_Contact" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Mari_Status" ColumnName="Mari_Status" />
+                <ScalarProperty Name="Fam_Role" ColumnName="Fam_Role" />
+                <ScalarProperty Name="Official_Capa" ColumnName="Official_Capa" />
+                <ScalarProperty Name="JoinDT" ColumnName="JoinDT" />
+                <ScalarProperty Name="Is_Baptised" ColumnName="Is_Baptised" />
+                <ScalarProperty Name="BaptismDT" ColumnName="BaptismDT" />
+                <ScalarProperty Name="Service_Name" ColumnName="Service_Name" />
+                <ScalarProperty Name="Cell_Name" ColumnName="Cell_Name" />
+                <ScalarProperty Name="JobTitile" ColumnName="JobTitile" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+                <ScalarProperty Name="Member_Status" ColumnName="Member_Status" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MoneyBlockTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.MoneyBlockTB">
+              <MappingFragment StoreEntitySet="MoneyBlockTB">
+                <ScalarProperty Name="MB_TD" ColumnName="MB_TD" />
+                <ScalarProperty Name="MB_GL_NO" ColumnName="MB_GL_NO" />
+                <ScalarProperty Name="MB_Descript" ColumnName="MB_Descript" />
+                <ScalarProperty Name="MB_Cur_Sign" ColumnName="MB_Cur_Sign" />
+                <ScalarProperty Name="MB_Bal" ColumnName="MB_Bal" />
+                <ScalarProperty Name="MB_CreateDT" ColumnName="MB_CreateDT" />
+                <ScalarProperty Name="MB_CreatedBy" ColumnName="MB_CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfferingTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.OfferingTB">
+              <MappingFragment StoreEntitySet="OfferingTB">
+                <ScalarProperty Name="OT_ID" ColumnName="OT_ID" />
+                <ScalarProperty Name="Pay_ID" ColumnName="Pay_ID" />
+                <ScalarProperty Name="TKC_MemID" ColumnName="TKC_MemID" />
+                <ScalarProperty Name="PaymentDT" ColumnName="PaymentDT" />
+                <ScalarProperty Name="Payment_Channel" ColumnName="Payment_Channel" />
+                <ScalarProperty Name="Cheque_NO" ColumnName="Cheque_NO" />
+                <ScalarProperty Name="Fund_Type" ColumnName="Fund_Type" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Mem_Fullname" ColumnName="Mem_Fullname" />
+                <ScalarProperty Name="GL_No" ColumnName="GL_No" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PledgeTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.PledgeTB">
+              <MappingFragment StoreEntitySet="PledgeTB">
+                <ScalarProperty Name="PP_NO" ColumnName="PP_NO" />
+                <ScalarProperty Name="PP_ID" ColumnName="PP_ID" />
+                <ScalarProperty Name="PP_Mem_ID" ColumnName="PP_Mem_ID" />
+                <ScalarProperty Name="PP_Mem_Name" ColumnName="PP_Mem_Name" />
+                <ScalarProperty Name="PP_Mem_Phone" ColumnName="PP_Mem_Phone" />
+                <ScalarProperty Name="PP_Mem_Cell" ColumnName="PP_Mem_Cell" />
+                <ScalarProperty Name="PP_Pay_Channel" ColumnName="PP_Pay_Channel" />
+                <ScalarProperty Name="PP_Chq_No" ColumnName="PP_Chq_No" />
+                <ScalarProperty Name="PP_eTran_No" ColumnName="PP_eTran_No" />
+                <ScalarProperty Name="PP_Cur_Type" ColumnName="PP_Cur_Type" />
+                <ScalarProperty Name="PP_CurID" ColumnName="PP_CurID" />
+                <ScalarProperty Name="PP_Cur_Symbol" ColumnName="PP_Cur_Symbol" />
+                <ScalarProperty Name="PP_iSMember" ColumnName="PP_iSMember" />
+                <ScalarProperty Name="PP_Address" ColumnName="PP_Address" />
+                <ScalarProperty Name="PP_Amount" ColumnName="PP_Amount" />
+                <ScalarProperty Name="PP_CreateDT" ColumnName="PP_CreateDT" />
+                <ScalarProperty Name="PP_CreatedBy" ColumnName="PP_CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWDC_WCompleteTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.PWDC_WCompleteTB">
+              <MappingFragment StoreEntitySet="PWDC_WCompleteTB">
+                <ScalarProperty Name="PWDC_ID" ColumnName="PWDC_ID" />
+                <ScalarProperty Name="TKHS_ID" ColumnName="TKHS_ID" />
+                <ScalarProperty Name="ResetType" ColumnName="ResetType" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="ReqDT" ColumnName="ReqDT" />
+                <ScalarProperty Name="Platform" ColumnName="Platform" />
+                <ScalarProperty Name="complete" ColumnName="complete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWDR_ManageTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.PWDR_ManageTB">
+              <MappingFragment StoreEntitySet="PWDR_ManageTB">
+                <ScalarProperty Name="PWDR_ID" ColumnName="PWDR_ID" />
+                <ScalarProperty Name="TKHS_ID" ColumnName="TKHS_ID" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="platformTB" ColumnName="platformTB" />
+                <ScalarProperty Name="requestDT" ColumnName="requestDT" />
+                <ScalarProperty Name="PWD_ResetDT" ColumnName="PWD_ResetDT" />
+                <ScalarProperty Name="creatBY" ColumnName="creatBY" />
+                <ScalarProperty Name="Request_Type" ColumnName="Request_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sal_GradeTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.Sal_GradeTB">
+              <MappingFragment StoreEntitySet="Sal_GradeTB">
+                <ScalarProperty Name="SGT_ID" ColumnName="SGT_ID" />
+                <ScalarProperty Name="Grade_ID" ColumnName="Grade_ID" />
+                <ScalarProperty Name="Grade_Name" ColumnName="Grade_Name" />
+                <ScalarProperty Name="Grade_Code" ColumnName="Grade_Code" />
+                <ScalarProperty Name="Base_Amt" ColumnName="Base_Amt" />
+                <ScalarProperty Name="OT_Per" ColumnName="OT_Per" />
+                <ScalarProperty Name="Perf_Bonus" ColumnName="Perf_Bonus" />
+                <ScalarProperty Name="CreateDATE" ColumnName="CreateDATE" />
+                <ScalarProperty Name="CreatedBY_Who" ColumnName="CreatedBY_Who" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sal_PaymentTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.Sal_PaymentTB">
+              <MappingFragment StoreEntitySet="Sal_PaymentTB">
+                <ScalarProperty Name="STP_ID" ColumnName="STP_ID" />
+                <ScalarProperty Name="Pay_Slip_No" ColumnName="Pay_Slip_No" />
+                <ScalarProperty Name="Pay_Acct_No" ColumnName="Pay_Acct_No" />
+                <ScalarProperty Name="Name_Of_Member" ColumnName="Name_Of_Member" />
+                <ScalarProperty Name="MembershipID" ColumnName="MembershipID" />
+                <ScalarProperty Name="SalGrade" ColumnName="SalGrade" />
+                <ScalarProperty Name="BaseAmt" ColumnName="BaseAmt" />
+                <ScalarProperty Name="MonthBonus" ColumnName="MonthBonus" />
+                <ScalarProperty Name="LoanDedt" ColumnName="LoanDedt" />
+                <ScalarProperty Name="Mark_Present" ColumnName="Mark_Present" />
+                <ScalarProperty Name="Mark_Absent" ColumnName="Mark_Absent" />
+                <ScalarProperty Name="Mark_Excuse" ColumnName="Mark_Excuse" />
+                <ScalarProperty Name="NetSal" ColumnName="NetSal" />
+                <ScalarProperty Name="CreateSDT" ColumnName="CreateSDT" />
+                <ScalarProperty Name="CreatedSBY" ColumnName="CreatedSBY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salary_UserTB">
+            <EntityTypeMapping TypeName="KeeperDBModel.Salary_UserTB">
+              <MappingFragment StoreEntitySet="Salary_UserTB">
+                <ScalarProperty Name="SU_ID" ColumnName="SU_ID" />
+                <ScalarProperty Name="Pay_No" ColumnName="Pay_No" />
+                <ScalarProperty Name="Sal_Grade" ColumnName="Sal_Grade" />
+                <ScalarProperty Name="NameFull" ColumnName="NameFull" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="TKHS_ID" ColumnName="TKHS_ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Acct_Status" ColumnName="Acct_Status" />
+                <ScalarProperty Name="Create_db" ColumnName="Create_db" />
+                <ScalarProperty Name="CreatedBYBy" ColumnName="CreatedBYBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceOfferingTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.ServiceOfferingTB">
+              <MappingFragment StoreEntitySet="ServiceOfferingTB">
+                <ScalarProperty Name="OR_NO" ColumnName="OR_NO" />
+                <ScalarProperty Name="OR_ID" ColumnName="OR_ID" />
+                <ScalarProperty Name="Service_Type" ColumnName="Service_Type" />
+                <ScalarProperty Name="MW_Offering" ColumnName="MW_Offering" />
+                <ScalarProperty Name="MF_Offering" ColumnName="MF_Offering" />
+                <ScalarProperty Name="SF_Offering" ColumnName="SF_Offering" />
+                <ScalarProperty Name="SS_Offering" ColumnName="SS_Offering" />
+                <ScalarProperty Name="RO_CreateDT" ColumnName="RO_CreateDT" />
+                <ScalarProperty Name="RO_CreatedBY" ColumnName="RO_CreatedBY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.ServiceTB">
+              <MappingFragment StoreEntitySet="ServiceTB">
+                <ScalarProperty Name="SR_ID" ColumnName="SR_ID" />
+                <ScalarProperty Name="Service_ID" ColumnName="Service_ID" />
+                <ScalarProperty Name="Service_Name" ColumnName="Service_Name" />
+                <ScalarProperty Name="Service_Start_Time" ColumnName="Service_Start_Time" />
+                <ScalarProperty Name="Service_End_Time" ColumnName="Service_End_Time" />
+                <ScalarProperty Name="Service_Lead_Pastor" ColumnName="Service_Lead_Pastor" />
+                <ScalarProperty Name="Service_Assist_Pastor" ColumnName="Service_Assist_Pastor" />
+                <ScalarProperty Name="Create_DT" ColumnName="Create_DT" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TitheTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.TitheTB">
+              <MappingFragment StoreEntitySet="TitheTB">
+                <ScalarProperty Name="TI_ID" ColumnName="TI_ID" />
+                <ScalarProperty Name="Tithe_ID" ColumnName="Tithe_ID" />
+                <ScalarProperty Name="T_Mem_ID" ColumnName="T_Mem_ID" />
+                <ScalarProperty Name="T_Mem_Name" ColumnName="T_Mem_Name" />
+                <ScalarProperty Name="T_Mem_Phone" ColumnName="T_Mem_Phone" />
+                <ScalarProperty Name="T_Mem_Cell" ColumnName="T_Mem_Cell" />
+                <ScalarProperty Name="T_Pay_Channel" ColumnName="T_Pay_Channel" />
+                <ScalarProperty Name="T_Chq_No" ColumnName="T_Chq_No" />
+                <ScalarProperty Name="T_eTran_No" ColumnName="T_eTran_No" />
+                <ScalarProperty Name="T_Cur_Type" ColumnName="T_Cur_Type" />
+                <ScalarProperty Name="T_Cur_Symbol" ColumnName="T_Cur_Symbol" />
+                <ScalarProperty Name="T_CurID" ColumnName="T_CurID" />
+                <ScalarProperty Name="T_Amount" ColumnName="T_Amount" />
+                <ScalarProperty Name="T_Description" ColumnName="T_Description" />
+                <ScalarProperty Name="T_Paid_DT" ColumnName="T_Paid_DT" />
+                <ScalarProperty Name="T_CreateDT" ColumnName="T_CreateDT" />
+                <ScalarProperty Name="T_CreatedBy" ColumnName="T_CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionCodeTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.TransactionCodeTB">
+              <MappingFragment StoreEntitySet="TransactionCodeTB">
+                <ScalarProperty Name="TC_ID" ColumnName="TC_ID" />
+                <ScalarProperty Name="Tran_Code" ColumnName="Tran_Code" />
+                <ScalarProperty Name="TranCode_Descrip" ColumnName="TranCode_Descrip" />
+                <ScalarProperty Name="Asso_Cur_Symbol" ColumnName="Asso_Cur_Symbol" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+                <ScalarProperty Name="CreatDT" ColumnName="CreatDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.UserTB">
+              <MappingFragment StoreEntitySet="UserTB">
+                <ScalarProperty Name="UT_ID" ColumnName="UT_ID" />
+                <ScalarProperty Name="TKHS_ID" ColumnName="TKHS_ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Zip_code" ColumnName="Zip_code" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Marrital_Status" ColumnName="Marrital_Status" />
+                <ScalarProperty Name="NOK_Name" ColumnName="NOK_Name" />
+                <ScalarProperty Name="NOK_Phone" ColumnName="NOK_Phone" />
+                <ScalarProperty Name="NOK_Address" ColumnName="NOK_Address" />
+                <ScalarProperty Name="NOKRela" ColumnName="NOKRela" />
+                <ScalarProperty Name="UserFam" ColumnName="UserFam" />
+                <ScalarProperty Name="Dep" ColumnName="Dep" />
+                <ScalarProperty Name="SysRoll" ColumnName="SysRoll" />
+                <ScalarProperty Name="Create_dt" ColumnName="Create_dt" />
+                <ScalarProperty Name="JDate" ColumnName="JDate" />
+                <ScalarProperty Name="Member_Status" ColumnName="Member_Status" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Security_question1" ColumnName="Security_question1" />
+                <ScalarProperty Name="Security_question2" ColumnName="Security_question2" />
+                <ScalarProperty Name="Security_question3" ColumnName="Security_question3" />
+                <ScalarProperty Name="Secu_quest_answer1" ColumnName="Secu_quest_answer1" />
+                <ScalarProperty Name="Secu_quest_answer2" ColumnName="Secu_quest_answer2" />
+                <ScalarProperty Name="Secu_quest_answer3" ColumnName="Secu_quest_answer3" />
+                <ScalarProperty Name="Pwd_lock" ColumnName="Pwd_lock" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Admin_loc" ColumnName="Admin_loc" />
+                <ScalarProperty Name="OfficialCapacity" ColumnName="OfficialCapacity" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="securitySet" ColumnName="securitySet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZoneTBs">
+            <EntityTypeMapping TypeName="KeeperDBModel.ZoneTB">
+              <MappingFragment StoreEntitySet="ZoneTB">
+                <ScalarProperty Name="ZT_ID" ColumnName="ZT_ID" />
+                <ScalarProperty Name="Zone_ID" ColumnName="Zone_ID" />
+                <ScalarProperty Name="Zone_Name" ColumnName="Zone_Name" />
+                <ScalarProperty Name="Zone_Lead_Name" ColumnName="Zone_Lead_Name" />
+                <ScalarProperty Name="Zone_Asst_Name" ColumnName="Zone_Asst_Name" />
+                <ScalarProperty Name="Zonel_Adress" ColumnName="Zonel_Adress" />
+                <ScalarProperty Name="Zone_Location" ColumnName="Zone_Location" />
+                <ScalarProperty Name="Zone_Email" ColumnName="Zone_Email" />
+                <ScalarProperty Name="Zone_Phone" ColumnName="Zone_Phone" />
+                <ScalarProperty Name="Zone_Status" ColumnName="Zone_Status" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

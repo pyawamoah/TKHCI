@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DFEEF137-A522-4348-B94F-61D2C2F01667}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TKHCI</RootNamespace>
+    <AssemblyName>TKHCI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.Charts.WinForms, Version=1.0.3.0, Culture=neutral, PublicKeyToken=4cb9ae78886bbe24, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.Charts.WinForms.1.0.3\lib\net40\Guna.Charts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=e4b9cdd7b4cde4b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.3\lib\net40\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Users\yawpc\Desktop\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=5.3.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.5.3.11\lib\net461\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq.EagerFetching, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.EagerFetching.2.2.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin_Module\Department\DeptModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Department\DeptModule.Designer.cs">
+      <DependentUpon>DeptModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Admin_Dashbaord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Admin_Dashbaord.Designer.cs">
+      <DependentUpon>Admin_Dashbaord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Member_CRM\Member_CRM_MAIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Member_CRM\Member_CRM_MAIN.Designer.cs">
+      <DependentUpon>Member_CRM_MAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\Admin_Password_ResetCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\Admin_Password_ResetCount.Designer.cs">
+      <DependentUpon>Admin_Password_ResetCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\Password_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\Password_Update.Designer.cs">
+      <DependentUpon>Password_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Service_CRM\Service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Service_CRM\Service.Designer.cs">
+      <DependentUpon>Service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\SysUser_CRM\Admin_sysUser_CRM_MAIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\SysUser_CRM\Admin_sysUser_CRM_MAIN.Designer.cs">
+      <DependentUpon>Admin_sysUser_CRM_MAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssetTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Asset_CategoryTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Asset_DisposalTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BonusTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CellTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cell_Module\Cell_CRM\Cell_MAIN_CRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cell_Module\Cell_CRM\Cell_MAIN_CRM.Designer.cs">
+      <DependentUpon>Cell_MAIN_CRM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cell_Module\Dashboard\Cell_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cell_Module\Dashboard\Cell_Dashboard.Designer.cs">
+      <DependentUpon>Cell_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Charts\Area.cs" />
+    <Compile Include="Charts\Bar.cs" />
+    <Compile Include="Charts\Bubble.cs" />
+    <Compile Include="Charts\Doughnut.cs" />
+    <Compile Include="Charts\HorizontalBar.cs" />
+    <Compile Include="Charts\Line.cs" />
+    <Compile Include="Charts\MixedBarAndArea.cs" />
+    <Compile Include="Charts\MixedBarAndLine.cs" />
+    <Compile Include="Charts\MixedBarAndSpline.cs" />
+    <Compile Include="Charts\MixedBarAndSplineArea.cs" />
+    <Compile Include="Charts\MixedBarAndSteppedArea.cs" />
+    <Compile Include="Charts\MixedBarAndSteppedLine.cs" />
+    <Compile Include="Charts\Pie.cs" />
+    <Compile Include="Charts\PolarArea.cs" />
+    <Compile Include="Charts\Radar.cs" />
+    <Compile Include="Charts\RoundedBar.cs" />
+    <Compile Include="Charts\Scatter.cs" />
+    <Compile Include="Charts\Spline.cs" />
+    <Compile Include="Charts\SplineArea.cs" />
+    <Compile Include="Charts\StackedBar.cs" />
+    <Compile Include="Charts\StackedHorizontalBar.cs" />
+    <Compile Include="Charts\SteppedArea.cs" />
+    <Compile Include="Charts\SteppedLine.cs" />
+    <Compile Include="ConfigBK_Change\Dark.cs" />
+    <Compile Include="ConfigBK_Change\Light.cs" />
+    <Compile Include="ConnectCardTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crypto.cs" />
+    <Compile Include="Cryptography.cs" />
+    <Compile Include="CurrencyTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_AnswerAllSQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_AnswerAllSQ.Designer.cs">
+      <DependentUpon>Error_AnswerAllSQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_DoubleOpenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_DoubleOpenForm.Designer.cs">
+      <DependentUpon>Error_DoubleOpenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_failedLock_Count.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_failedLock_Count.Designer.cs">
+      <DependentUpon>Error_failedLock_Count.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Fill_All_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Fill_All_Form.Designer.cs">
+      <DependentUpon>Error_Fill_All_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Invalid_Username.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Invalid_Username.Designer.cs">
+      <DependentUpon>Error_Invalid_Username.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Login_All_Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Login_All_Info.Designer.cs">
+      <DependentUpon>Error_Login_All_Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Passport_PIc_Empty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Passport_PIc_Empty.Designer.cs">
+      <DependentUpon>Error_Passport_PIc_Empty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_PasswordMissMatchy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_PasswordMissMatchy.Designer.cs">
+      <DependentUpon>Error_PasswordMissMatchy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_PwdLockCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_PwdLockCount.Designer.cs">
+      <DependentUpon>Error_PwdLockCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Request_Treated.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Request_Treated.Designer.cs">
+      <DependentUpon>Error_Request_Treated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Select_Asset_Img.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Select_Asset_Img.Designer.cs">
+      <DependentUpon>Error_Select_Asset_Img.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Select_Unit_No.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_Select_Unit_No.Designer.cs">
+      <DependentUpon>Error_Select_Unit_No.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error_Pack\Error_UsernameOrPasswordEmpty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error_Pack\Error_UsernameOrPasswordEmpty.Designer.cs">
+      <DependentUpon>Error_UsernameOrPasswordEmpty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Expense_CartTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FamTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Finance\AssertModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finance\AssertModule.Designer.cs">
+      <DependentUpon>AssertModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Finance\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finance\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Finance\ChartCode\EUR.cs" />
+    <Compile Include="Finance\ChartCode\GBP.cs" />
+    <Compile Include="Finance\ChartCode\GHS.cs" />
+    <Compile Include="Finance\ChartCode\USD.cs" />
+    <Compile Include="Finance\Wallet_Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finance\Wallet_Info.Designer.cs">
+      <DependentUpon>Wallet_Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Finance\GeneralExpense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finance\GeneralExpense.Designer.cs">
+      <DependentUpon>GeneralExpense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Finance\GL_s.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finance\GL_s.Designer.cs">
+      <DependentUpon>GL_s.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Finance\OfferingsPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finance\OfferingsPay.Designer.cs">
+      <DependentUpon>OfferingsPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Finance\PayrollCRM_ORigin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finance\PayrollCRM_ORigin.Designer.cs">
+      <DependentUpon>PayrollCRM_ORigin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="First_FruitTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GE_CategoryTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GL_Deposit.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GL_Master.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GL_Master_History.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GL_Setup.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GL_Transactions.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Info_Pack\Info_RequestSent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Info_Pack\Info_RequestSent.Designer.cs">
+      <DependentUpon>Info_RequestSent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Info_Pack\Info_Successful.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Info_Pack\Info_Successful.Designer.cs">
+      <DependentUpon>Info_Successful.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForcePWD_Change.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForcePWD_Change.Designer.cs">
+      <DependentUpon>TKHCI_ForcePWD_Change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForgotPass_FirstPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForgotPass_FirstPage.Designer.cs">
+      <DependentUpon>TKHCI_ForgotPass_FirstPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invited_GuestTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KeepersModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeepersModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KeepersModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KeepersModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeepersModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="LiabilitiesTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoanTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ManagersTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MembTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MixedBarAndSplineArea.cs" />
+    <Compile Include="MoneyBlockTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyGlobal.cs" />
+    <Compile Include="OfferingTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PledgeTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForgotPass_LC_REset_FourPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForgotPass_LC_REset_FourPage.Designer.cs">
+      <DependentUpon>TKHCI_ForgotPass_LC_REset_FourPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForgotPass_Set_Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForgotPass_Set_Password.Designer.cs">
+      <DependentUpon>TKHCI_ForgotPass_Set_Password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForgotPass_SQ_Answers_ThirdPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForgotPass_SQ_Answers_ThirdPage.Designer.cs">
+      <DependentUpon>TKHCI_ForgotPass_SQ_Answers_ThirdPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForgotPass_Username_SecondPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_ForgotPass_Username_SecondPage.Designer.cs">
+      <DependentUpon>TKHCI_ForgotPass_Username_SecondPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Login\TKHCI_Main_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Login\TKHCI_Main_Login.Designer.cs">
+      <DependentUpon>TKHCI_Main_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_SetSecurityQ_Five.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Module\Password_Management\TKHCI_SetSecurityQ_Five.Designer.cs">
+      <DependentUpon>TKHCI_SetSecurityQ_Five.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Public Domain\Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Public Domain\Calculator.Designer.cs">
+      <DependentUpon>Calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Public Domain\First_Timmers\Connection_Card.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Public Domain\First_Timmers\Connection_Card.Designer.cs">
+      <DependentUpon>Connection_Card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Public Domain\TRY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Public Domain\TRY.Designer.cs">
+      <DependentUpon>TRY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Public Domain\userSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Public Domain\userSettings.Designer.cs">
+      <DependentUpon>userSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PWDC_WCompleteTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PWDR_ManageTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary_UserTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sal_GradeTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sal_PaymentTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceOfferingTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TitheTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionCodeTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VisualFinance\Finance_Graph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualFinance\Finance_Graph.Designer.cs">
+      <DependentUpon>Finance_Graph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZoneTB.cs">
+      <DependentUpon>KeepersModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin_Module\Department\DeptModule.resx">
+      <DependentUpon>DeptModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Admin_Dashbaord.resx">
+      <DependentUpon>Admin_Dashbaord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Member_CRM\Member_CRM_MAIN.resx">
+      <DependentUpon>Member_CRM_MAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Password_Management\Admin_Password_ResetCount.resx">
+      <DependentUpon>Admin_Password_ResetCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Password_Management\Password_Update.resx">
+      <DependentUpon>Password_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Service_CRM\Service.resx">
+      <DependentUpon>Service.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\SysUser_CRM\Admin_sysUser_CRM_MAIN.resx">
+      <DependentUpon>Admin_sysUser_CRM_MAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cell_Module\Cell_CRM\Cell_MAIN_CRM.resx">
+      <DependentUpon>Cell_MAIN_CRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cell_Module\Dashboard\Cell_Dashboard.resx">
+      <DependentUpon>Cell_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_AnswerAllSQ.resx">
+      <DependentUpon>Error_AnswerAllSQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_DoubleOpenForm.resx">
+      <DependentUpon>Error_DoubleOpenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_failedLock_Count.resx">
+      <DependentUpon>Error_failedLock_Count.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_Fill_All_Form.resx">
+      <DependentUpon>Error_Fill_All_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_Invalid_Username.resx">
+      <DependentUpon>Error_Invalid_Username.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_Login_All_Info.resx">
+      <DependentUpon>Error_Login_All_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_Passport_PIc_Empty.resx">
+      <DependentUpon>Error_Passport_PIc_Empty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_PasswordMissMatchy.resx">
+      <DependentUpon>Error_PasswordMissMatchy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_PwdLockCount.resx">
+      <DependentUpon>Error_PwdLockCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_Request_Treated.resx">
+      <DependentUpon>Error_Request_Treated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_Select_Asset_Img.resx">
+      <DependentUpon>Error_Select_Asset_Img.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_Select_Unit_No.resx">
+      <DependentUpon>Error_Select_Unit_No.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error_Pack\Error_UsernameOrPasswordEmpty.resx">
+      <DependentUpon>Error_UsernameOrPasswordEmpty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finance\AssertModule.resx">
+      <DependentUpon>AssertModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finance\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finance\Wallet_Info.resx">
+      <DependentUpon>Wallet_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finance\GeneralExpense.resx">
+      <DependentUpon>GeneralExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finance\GL_s.resx">
+      <DependentUpon>GL_s.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finance\OfferingsPay.resx">
+      <DependentUpon>OfferingsPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finance\PayrollCRM_ORigin.resx">
+      <DependentUpon>PayrollCRM_ORigin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Info_Pack\Info_RequestSent.resx">
+      <DependentUpon>Info_RequestSent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Info_Pack\Info_Successful.resx">
+      <DependentUpon>Info_Successful.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Password_Management\TKHCI_ForcePWD_Change.resx">
+      <DependentUpon>TKHCI_ForcePWD_Change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Password_Management\TKHCI_ForgotPass_FirstPage.resx">
+      <DependentUpon>TKHCI_ForgotPass_FirstPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Admin_Module\Password_Management\TKHCI_ForgotPass_LC_REset_FourPage.resx">
+      <DependentUpon>TKHCI_ForgotPass_LC_REset_FourPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Password_Management\TKHCI_ForgotPass_Set_Password.resx">
+      <DependentUpon>TKHCI_ForgotPass_Set_Password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Password_Management\TKHCI_ForgotPass_SQ_Answers_ThirdPage.resx">
+      <DependentUpon>TKHCI_ForgotPass_SQ_Answers_ThirdPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Password_Management\TKHCI_ForgotPass_Username_SecondPage.resx">
+      <DependentUpon>TKHCI_ForgotPass_Username_SecondPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Login\TKHCI_Main_Login.resx">
+      <DependentUpon>TKHCI_Main_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Module\Password_Management\TKHCI_SetSecurityQ_Five.resx">
+      <DependentUpon>TKHCI_SetSecurityQ_Five.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public Domain\Calculator.resx">
+      <DependentUpon>Calculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public Domain\First_Timmers\Connection_Card.resx">
+      <DependentUpon>Connection_Card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public Domain\TRY.resx">
+      <DependentUpon>TRY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public Domain\userSettings.resx">
+      <DependentUpon>userSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualFinance\Finance_Graph.resx">
+      <DependentUpon>Finance_Graph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="KeepersModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KeepersModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="KeepersModel.edmx.diagram">
+      <DependentUpon>KeepersModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartIcom_Blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartIcom_Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shutdown_52px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login_Logo1.png" />
+    <None Include="Resources\user3.png" />
+    <None Include="Resources\User1.png" />
+    <None Include="Resources\Pass3.png" />
+    <None Include="Resources\Pass1.png" />
+    <None Include="Resources\group.png" />
+    <None Include="Resources\Login_Logo.png" />
+    <None Include="Resources\B2K.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MembersOne.png" />
+    <None Include="Resources\cell.png" />
+    <None Include="Resources\Login_Logo2.png" />
+    <None Include="Resources\PWD_Original.png" />
+    <None Include="Resources\software-developer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Warranty\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Canvas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\department.png" />
+    <None Include="Resources\cheque.png" />
+    <None Include="Resources\property-insurance.png" />
+    <None Include="Resources\available-updates-512.png" />
+    <None Include="Resources\upload-512.png" />
+    <None Include="Resources\3d for keepers house.png" />
+    <None Include="Resources\family.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\2arrow_50px.png" />
+    <None Include="Resources\percentage_52px.png" />
+    <None Include="Resources\Nine.png" />
+    <None Include="Resources\Eight.png" />
+    <None Include="Resources\Seven.png" />
+    <None Include="Resources\Six.png" />
+    <None Include="Resources\Five.png" />
+    <None Include="Resources\Four.png" />
+    <None Include="Resources\Three.png" />
+    <None Include="Resources\Two.png" />
+    <None Include="Resources\One.png" />
+    <None Include="Resources\dot.png" />
+    <None Include="Resources\Zero.png" />
+    <None Include="Resources\EQUALtO.png" />
+    <None Include="Resources\Aplus_math_50px.png" />
+    <None Include="Resources\Asubtract_50px.png" />
+    <None Include="Resources\Amultiply_50px.png" />
+    <None Include="Resources\Adivide_50px.png" />
+    <None Include="Resources\closesss.png" />
+    <None Include="Resources\open.png" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\data-analysis.png" />
+    <None Include="Resources\password.png" />
+    <None Include="Resources\gear.png" />
+    <None Include="Resources\calculator.png" />
+    <None Include="Resources\statistics.png" />
+    <None Include="Resources\salary.png" />
+    <None Include="Resources\tithe.png" />
+    <None Include="Resources\ledger.png" />
+    <None Include="Resources\connection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget.png" />
+    <None Include="Resources\expenses.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\church.png" />
+    <None Include="Resources\Block.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unhide1.png" />
+    <None Include="Resources\launcher_foreground.png" />
+    <None Include="Resources\Expense Arrow4.png" />
+    <None Include="Resources\Expense Arrow3.png" />
+    <None Include="Resources\Expense Arrow2.png" />
+    <None Include="Resources\hidden.png" />
+    <None Include="Resources\Unhide.png" />
+    <None Include="Resources\income arrow1.png" />
+    <None Include="Resources\Expense Arrow1.png" />
+    <None Include="Resources\Expense Arrow.png" />
+    <None Include="Resources\income arrow.png" />
+    <None Include="Resources\right-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KeepersModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KeepersModel.edmx</DependentUpon>
+      <LastGenOutput>KeepersModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KeepersModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KeepersModel.edmx</DependentUpon>
+      <LastGenOutput>KeepersModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\statistics1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
